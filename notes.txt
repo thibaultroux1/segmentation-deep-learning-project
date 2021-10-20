@@ -1,0 +1,12 @@
+Classes :
+    0.  background
+    1.  hamster
+    2.  cochon d'inde
+    3.  loup
+    4.  coyote
+    5.  chat
+    6.  lynx
+    7.  guépard
+    8.  jaguar
+    9.  orang-outan
+    10. chimpanzé
