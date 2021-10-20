@@ -1,1 +1,1 @@
-# segmentation-deep-learning-project
+# Projet de deep learning : Segmentation par apprentissage semi-supervisé
