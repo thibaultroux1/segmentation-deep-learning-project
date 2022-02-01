@@ -13,8 +13,7 @@ def mask_to_tensor(mask_path,class_num,bg_num):
     return tensor
 
 def load_data():
-    animals = ["chimpanze","coyote","guepard","jaguar","loup","orang_outan"]
-    classes = [6,3,5,4,2,7]
+    animals = ["chat","lynx","loup","coyote","jaguar","guepard","chimpanze","orang_outan","hamster","cochon_d_inde"]
 
     x = np.empty((0,64,64,3))
     y = np.empty((0,64,64,11))
@@ -25,7 +24,7 @@ def load_data():
         for fichier in os.listdir(folder_name_mask) :
             # Process mask
             path_mask = folder_name_mask+"/"+fichier
-            mask = mask_to_tensor(path_mask,class_num=classes[i],bg_num=10)
+            mask = mask_to_tensor(path_mask,class_num=i,bg_num=10)
             mask_extend = np.expand_dims(mask,0)
             y = np.append(y,mask_extend,0)
             # Process image
