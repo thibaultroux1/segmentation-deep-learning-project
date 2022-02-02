@@ -22,18 +22,19 @@ def load_data():
         folder_name_mask = "masques/"+animal+"_mask"
         folder_name_img = "animals/fromclass/"+animal
         for fichier in os.listdir(folder_name_mask) :
-            # Process mask
-            path_mask = folder_name_mask+"/"+fichier
-            mask = mask_to_tensor(path_mask,class_num=i,bg_num=10)
-            mask_extend = np.expand_dims(mask,0)
-            y = np.append(y,mask_extend,0)
-            # Process image
-            img_name = fichier.split(".")[0]+".jpg"
-            path_img = folder_name_img+"/"+img_name
-            img = cv2.imread(path_img)
-            img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-            img_extend = np.expand_dims(img,0)
-            x = np.append(x,img_extend,0)
+            if fichier.split("_")[0] not in ["chat","lynx","loup","coyote","jaguar","guepard","chimpanze","orang-outan","hamster","cochon-dinde"]:
+                # Process mask
+                path_mask = folder_name_mask+"/"+fichier
+                mask = mask_to_tensor(path_mask,class_num=i,bg_num=10)
+                mask_extend = np.expand_dims(mask,0)
+                y = np.append(y,mask_extend,0)
+                # Process image
+                img_name = fichier.split(".")[0]+".jpg"
+                path_img = folder_name_img+"/"+img_name
+                img = cv2.imread(path_img)
+                img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
+                img_extend = np.expand_dims(img,0)
+                x = np.append(x,img_extend,0)
     return x,y
 
 def permute_y(y0,y1):
