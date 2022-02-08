@@ -29,3 +29,25 @@ def confusion_matrix(model,x,y):
     s.set_xticklabels(labels,fontsize=15)
     s.set_yticklabels(labels,fontsize=15,rotation=0)
     s.set_title("Matrice de confusion",fontsize=30)
+
+def plot_training_analysis(history):
+  acc = history.history['accuracy']
+  val_acc = history.history['val_accuracy']
+  loss = history.history['loss']
+  val_loss = history.history['val_loss']
+
+  epochs = range(len(loss))
+  
+  plt.plot(epochs, acc, 'b', linestyle="--",label='Training accuracy')
+  plt.plot(epochs, val_acc, 'g', label='Validation accuracy')
+  plt.title('Training and validation accuracy')
+  plt.legend()
+
+  plt.figure()
+
+  plt.plot(epochs, loss, 'b', linestyle="--",label='Training loss')
+  plt.plot(epochs, val_loss,'g', label='Validation loss')
+  plt.title('Training and validation loss')
+  plt.legend()
+
+  plt.show()

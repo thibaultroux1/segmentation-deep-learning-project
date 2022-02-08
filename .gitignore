@@ -133,4 +133,4 @@ dmypy.json
 #*.jpg
 #*.pdf
 
-*.hdf5
+#*.hdf5
